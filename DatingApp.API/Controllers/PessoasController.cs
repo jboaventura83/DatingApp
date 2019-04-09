@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DatingApp.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]")]    
     public class PessoasController: Controller
     {
          private readonly DataContext _context;
