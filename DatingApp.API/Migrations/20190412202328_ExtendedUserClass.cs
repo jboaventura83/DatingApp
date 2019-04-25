@@ -61,7 +61,7 @@ namespace DatingApp.API.Migrations
                 nullable: true);
 
             migrationBuilder.CreateTable(
-                name: "Photo",
+                name: "Photos",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -85,14 +85,14 @@ namespace DatingApp.API.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_Photo_UserId",
-                table: "Photo",
+                table: "Photos",
                 column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Photo");
+                name: "Photos");
 
             migrationBuilder.DropColumn(
                 name: "City",
