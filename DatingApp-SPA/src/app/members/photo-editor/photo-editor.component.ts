@@ -72,4 +72,15 @@ export class PhotoEditorComponent implements OnInit {
     });
   }
 
+  deletePhoto(id: number) {
+    this.alertify.confirm('Você tem certeza que deseja excluir a foto?', () => {
+      this.userService.deletePhoto(this.authService.decodedToken.nameid, id).subscribe(() => {
+        this.photos.splice(this.photos.findIndex(p => p.id === id), 1);
+        this.alertify.success('Foto excluída com sucesso!');
+      }, error => {
+        this.alertify.error('Erro ao excluir foto');
+      });
+    });
+  }
+
 }
