@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
       dateOfBirth: [null, Validators.required],
       city: ['', Validators.required],
       country: ['', Validators.required],
-      password: ['',[Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
+      password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
       confirmPassword: ['', Validators.required]
     }, {validator: this.passwordMatchValidator});
   }
