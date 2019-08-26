@@ -8,13 +8,14 @@ namespace DatingApp.API.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Message",
+                name: "Messages",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     SenderId = table.Column<int>(nullable: false),
                     RecipientId = table.Column<int>(nullable: false),
+                    Content = table.Column<string>(nullable: false),
                     IsRead = table.Column<bool>(nullable: false),
                     DateRead = table.Column<DateTime>(nullable: true),
                     MessageSent = table.Column<DateTime>(nullable: false),
@@ -23,7 +24,7 @@ namespace DatingApp.API.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Message", x => x.Id);
+                    table.PrimaryKey("PK_Messages", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Message_Users_RecipientId",
                         column: x => x.RecipientId,
@@ -40,19 +41,19 @@ namespace DatingApp.API.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_Message_RecipientId",
-                table: "Message",
+                table: "Messages",
                 column: "RecipientId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Message_SenderId",
-                table: "Message",
+                table: "Messages",
                 column: "SenderId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Message");
+                name: "Messages");
         }
     }
 }

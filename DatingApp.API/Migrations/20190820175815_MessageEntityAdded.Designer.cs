@@ -31,7 +31,7 @@ namespace DatingApp.API.Migrations
                     b.ToTable("Likes");
                 });
 
-            modelBuilder.Entity("DatingApp.API.Models.Message", b =>
+            modelBuilder.Entity("DatingApp.API.Models.Messages", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -46,6 +46,8 @@ namespace DatingApp.API.Migrations
 
                     b.Property<int>("RecipientId");
 
+                    b.Property<string>("Content");
+
                     b.Property<bool>("SenderDeleted");
 
                     b.Property<int>("SenderId");
@@ -56,7 +58,7 @@ namespace DatingApp.API.Migrations
 
                     b.HasIndex("SenderId");
 
-                    b.ToTable("Message");
+                    b.ToTable("Messages");
                 });
 
             modelBuilder.Entity("DatingApp.API.Models.Pessoa", b =>
@@ -144,7 +146,7 @@ namespace DatingApp.API.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("DatingApp.API.Models.Message", b =>
+            modelBuilder.Entity("DatingApp.API.Models.Messages", b =>
                 {
                     b.HasOne("DatingApp.API.Models.User", "Recipient")
                         .WithMany("MessagesReceived")
